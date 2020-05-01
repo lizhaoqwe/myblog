@@ -15,7 +15,6 @@
     <script src="{% static 'ueditor/ueditor.all.min.js' %}"></script>
     <script src="{% static 'js/xfzajax.min.js' %}"></script>
     <script src="{% static 'js/xfzalert.min.js' %}"></script>
-    <script src="{% static 'js/write_news.min.js' %}"></script>
     <script src="{% static 'js/cms_news_list.min.js' %}"></script>
 {% endblock %}
 {% block content %}
@@ -39,11 +38,7 @@
                   <label for="exampleInputPassword1">分类</label>
                     <select name="category" id="" class="form-control">
                     {% for item in category %}
-                        {% if article %}
-                            <option value="{{ item.pk }}" selected>{{item.name}}</option>
-                        {% else %}
-                            <option value="{{ item.pk }}">{{item.name}}</option>
-                        {% endif %}
+                        <option value="{{ item.pk }}">{{item.name}}</option>
                     {% endfor %}
                     {% for category in categories %}
                         <option value="{{ category.pk }}">{{category.name}}</option>

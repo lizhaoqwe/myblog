@@ -41,7 +41,6 @@ News.prototype.publish_news = function () {
         event.preventDefault();
         var title = $('input[name="title"]').val();
         var category = $('select[name="category"]').val();
-        console.log(category);
         var desc = $('input[name="desc"]').val();
         var thumbnail = $('input[name="thumbnail"]').val();
         var content = window.ue.getContent();
@@ -63,19 +62,22 @@ News.prototype.publish_news = function () {
                 'content': content
             },
             'success': function (result) {
+
                 if(result['code'] === 200) {
                     if(article_id) {
                         xfzalert.alertSuccess('修改新闻成功！',function () {
                             window.location.reload();
                         })
                     }else {
+                        console.log(url);
                         xfzalert.alertSuccess('发布新闻成功！',function () {
                             window.location.reload();
                         })
                     }
 
                 }else {
-                    console.log(result['code'])
+                    console.log(result.message);
+                    console.log(result.code);
                 }
             }
         })
