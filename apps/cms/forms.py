@@ -3,8 +3,10 @@ from django.forms.models import ModelForm
 from apps.forms import FormMixMin
 from apps.articles.models import Articles,ArticleCategory
 from apps.articles.serializers import CategorySerializer
+
+
+
 class WriteArticlesForm(ModelForm,FormMixMin):
-    pk = forms.IntegerField()
     category = forms.IntegerField()
     class Meta:
         model = Articles

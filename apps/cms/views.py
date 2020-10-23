@@ -108,6 +108,7 @@ class ArticlesView(View):
             Articles.objects.create(title=title,category_id=category_id,desc=desc,thumbnail=thumbnail,content=content,author=request.user)
             return restful.ok()
         else:
+            print(form.errors)
             return restful.params_error(form.get_errors())
 
 
